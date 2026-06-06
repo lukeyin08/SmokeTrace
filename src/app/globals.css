@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 30% 99%;
+    --foreground: 200 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 12%;
+
+    /* Calming teal/green primary */
+    --primary: 173 64% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 30% 96%;
+    --secondary-foreground: 200 25% 18%;
+
+    --muted: 200 25% 96%;
+    --muted-foreground: 200 12% 45%;
+
+    --accent: 190 60% 94%;
+    --accent-foreground: 190 60% 22%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 56% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 30 50% 12%;
+
+    --border: 200 20% 90%;
+    --input: 200 20% 90%;
+    --ring: 173 64% 38%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 200 30% 7%;
+    --foreground: 180 20% 96%;
+
+    --card: 200 28% 10%;
+    --card-foreground: 180 20% 96%;
+
+    --popover: 200 28% 10%;
+    --popover-foreground: 180 20% 96%;
+
+    --primary: 173 58% 48%;
+    --primary-foreground: 200 30% 8%;
+
+    --secondary: 200 20% 16%;
+    --secondary-foreground: 180 20% 96%;
+
+    --muted: 200 20% 16%;
+    --muted-foreground: 200 12% 62%;
+
+    --accent: 190 40% 20%;
+    --accent-foreground: 190 60% 90%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 50% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 86% 55%;
+    --warning-foreground: 30 50% 12%;
+
+    --border: 200 18% 20%;
+    --input: 200 18% 22%;
+    --ring: 173 58% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .bg-app-gradient {
+    background-image: radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        hsl(173 64% 38% / 0.12),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 80% 110%,
+        hsl(190 70% 50% / 0.1),
+        transparent
+      );
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Hide scrollbars for horizontal nav while keeping scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
