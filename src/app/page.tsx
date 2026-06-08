@@ -173,17 +173,31 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-4 leading-relaxed text-muted-foreground">
                   <p>
-                    My grandfather was a lifelong smoker. He tried to quit, but
-                    always relapsed, believing the effort wasn't worth it. He was
-                    wrong.
+                    Luke is a freshman at Princeton University studying
+                    mathematics, with research experience in computational
+                    biology and medical data analytics.
                   </p>
                   <p>
-                    On my fifth birthday, he was diagnosed with stage four lung
-                    cancer, which took his life a few months later.
+                    Feel free to reach out at{" "}
+                    <a
+                      href="mailto:ly3569@princeton.edu"
+                      className="font-medium text-foreground hover:underline"
+                    >
+                      ly3569@princeton.edu
+                    </a>
+                    .
                   </p>
                   <p>
-                    I built SmokeTrace so that no one has to face the moment
-                    before a relapse alone, the way he did.
+                    Connect on{" "}
+                    <a
+                      href="https://www.linkedin.com/in/lukeyin2008/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-foreground hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
