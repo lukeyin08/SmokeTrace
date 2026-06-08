@@ -161,15 +161,18 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Founder */}
+        {/* Founders */}
         <section className="container py-20">
           <Card className="mx-auto max-w-4xl">
-            <CardContent className="p-8 md:p-10">
+            <CardContent className="space-y-10 p-8 md:p-10">
+              {/* Luke */}
               <div className="flex flex-col gap-8 md:flex-row md:items-start">
-                <div className="md:shrink-0">
-                  <FounderAvatar className="h-64 w-full md:h-72 md:w-64" />
+                <div className="md:w-48 md:shrink-0">
+                  <FounderAvatar initials="LY" className="h-24 w-24 text-3xl" />
                   <p className="mt-3 font-semibold">Luke Yin</p>
-                  <p className="text-sm text-muted-foreground">Founder · 2024</p>
+                  <p className="text-sm text-muted-foreground">
+                    Co-Founder · 2024
+                  </p>
                 </div>
                 <div className="space-y-4 leading-relaxed text-muted-foreground">
                   <p>
@@ -191,6 +194,48 @@ export default function LandingPage() {
                     Connect on{" "}
                     <a
                       href="https://www.linkedin.com/in/lukeyin2008/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-foreground hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                    .
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t" />
+
+              {/* Andrew */}
+              <div className="flex flex-col gap-8 md:flex-row md:items-start">
+                <div className="md:w-48 md:shrink-0">
+                  <FounderAvatar initials="AW" className="h-24 w-24 text-3xl" />
+                  <p className="mt-3 font-semibold">Andrew Wong</p>
+                  <p className="text-sm text-muted-foreground">
+                    Co-Founder · 2024
+                  </p>
+                </div>
+                <div className="space-y-4 leading-relaxed text-muted-foreground">
+                  <p>
+                    Andrew is a freshman at the University of Michigan studying
+                    neuroscience and public health, with research experience in
+                    computational neuroscience and public health data analysis.
+                  </p>
+                  <p>
+                    Feel free to reach out at{" "}
+                    <a
+                      href="mailto:aawong@umich.edu"
+                      className="font-medium text-foreground hover:underline"
+                    >
+                      aawong@umich.edu
+                    </a>
+                    .
+                  </p>
+                  <p>
+                    Connect on{" "}
+                    <a
+                      href="https://www.linkedin.com/in/andrewslinkedn/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-foreground hover:underline"
