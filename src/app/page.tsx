@@ -164,23 +164,27 @@ export default function LandingPage() {
         </section>
 
         {/* Founders */}
-        <section className="container py-20">
-          <Card className="mx-auto max-w-4xl">
-            <CardContent className="space-y-10 p-8 md:p-10">
+        <section className="border-t py-20">
+          <div className="container">
+            <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+              Meet the Founders
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
+              The two students building SmokeTrace.
+            </p>
+            <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
               {/* Luke */}
-              <div className="flex flex-col gap-8 md:flex-row md:items-start">
-                <div className="md:w-48 md:shrink-0">
+              <Card>
+                <CardContent className="flex flex-col items-center p-8 text-center">
                   <FounderAvatar initials="LY" className="h-24 w-24 text-3xl" />
-                  <p className="mt-3 font-semibold">Luke Yin</p>
+                  <p className="mt-4 font-semibold">Luke Yin</p>
                   <p className="text-sm text-muted-foreground">Co-Founder</p>
-                </div>
-                <div className="space-y-4 leading-relaxed text-muted-foreground">
-                  <p>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
                     Luke is a freshman at Princeton University studying
                     mathematics, with research experience in computational
                     biology and medical data analytics.
                   </p>
-                  <div className="flex items-center gap-3">
+                  <div className="mt-5 flex items-center justify-center gap-3">
                     <a
                       href="mailto:ly3569@princeton.edu"
                       aria-label="Email Luke Yin"
@@ -200,25 +204,24 @@ export default function LandingPage() {
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </div>
-                </div>
-              </div>
-
-              <div className="border-t" />
+                </CardContent>
+              </Card>
 
               {/* Andrew */}
-              <div className="flex flex-col gap-8 md:flex-row md:items-start">
-                <div className="md:w-48 md:shrink-0">
+              <Card>
+                <CardContent className="flex flex-col items-center p-8 text-center">
                   <FounderAvatar initials="AW" className="h-24 w-24 text-3xl" />
-                  <p className="mt-3 font-semibold">Andrew Wong</p>
+                  <p className="mt-4 font-semibold">Andrew Wong</p>
                   <p className="text-sm text-muted-foreground">Co-Founder</p>
-                </div>
-                <div className="space-y-4 leading-relaxed text-muted-foreground">
-                  <p>
-                    Andrew is a freshman at the University of Michigan studying
-                    neuroscience and public health, with research experience in
-                    computational neuroscience and public health data analysis.
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    A sophomore at the University of Michigan, Andrew studies
+                    neuroscience and public health. His work ranges from
+                    computational neuroscience to adolescent sleep science and
+                    digital preventative healthcare, including published
+                    research on home-based EEG systems for public-health
+                    telemonitoring.
                   </p>
-                  <div className="flex items-center gap-3">
+                  <div className="mt-5 flex items-center justify-center gap-3">
                     <a
                       href="mailto:aawong@umich.edu"
                       aria-label="Email Andrew Wong"
@@ -238,10 +241,10 @@ export default function LandingPage() {
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </section>
 
         {/* Final CTA */}
