@@ -181,8 +181,11 @@ export default function LandingPage() {
                   <p className="text-sm text-muted-foreground">Co-Founder</p>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
                     Luke is a freshman at Princeton University studying
-                    mathematics, with research experience in computational
-                    biology and medical data analytics.
+                    mathematics, with a minor in statistics and machine
+                    learning. His work spans computational biology and
+                    quantitative health analytics, including first-author
+                    research on enzyme catalysis and predictive modeling of
+                    community health data.
                   </p>
                   <div className="mt-5 flex items-center justify-center gap-3">
                     <a
