@@ -2,12 +2,15 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
+  ChevronDown,
   HeartHandshake,
   HeartPulse,
   Linkedin,
   LineChart,
   Mail,
   MapPin,
+  ShieldCheck,
+  Stethoscope,
   Users,
 } from "lucide-react";
 
@@ -16,6 +19,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { FounderAvatar } from "@/components/founder-avatar";
+import { Reveal } from "@/components/reveal";
+import { CountUp } from "@/components/count-up";
 
 const FEATURES = [
   {
@@ -56,6 +61,54 @@ const STEPS = [
   { step: "3", title: "Get support when it counts" },
 ];
 
+const TRUST = [
+  {
+    icon: ShieldCheck,
+    title: "Private by design",
+    description:
+      "Your cravings, triggers, and logs stay yours. No ads, and your data is never sold.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Always free",
+    description:
+      "A non-profit project built by students — no paywalls and no upsells, ever.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Care, not claims",
+    description:
+      "Behavioral support designed to complement professional care, never replace it.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Is SmokeTrace really free?",
+    a: "Yes. SmokeTrace is a non-profit project — there are no ads, no upsells, and no paywalls. It always will be free.",
+  },
+  {
+    q: "Is my data private?",
+    a: "Your cravings, triggers, and logs stay private to you. We don't sell your data or show ads against it.",
+  },
+  {
+    q: "Do I have to quit cold turkey?",
+    a: "No. SmokeTrace meets you where you are — track cravings, learn your triggers, and cut back at a pace that works for you.",
+  },
+  {
+    q: "What do I get when a craving hits?",
+    a: "Emergency mode gives you a timer and a guided breathing exercise, and accountability lets you reach your support people in one tap.",
+  },
+  {
+    q: "What devices does it work on?",
+    a: "SmokeTrace runs in any modern browser, so it works on your phone, tablet, or computer — nothing to install.",
+  },
+  {
+    q: "Is this medical advice?",
+    a: "No. SmokeTrace offers behavioral support, not medical advice. For treatment decisions, talk with a qualified clinician.",
+  },
+];
+
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -77,27 +130,42 @@ export default function LandingPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="container flex flex-col items-center py-20 text-center md:py-28">
-          <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight md:text-6xl">
-            Quit smoking. Predict cravings before they become relapses.
-          </h1>
-          <p className="mt-6 max-w-xl text-balance text-lg text-muted-foreground">
-            SmokeTrace helps you beat nicotine addiction: track cravings, see
-            your relapse risk, and get support before the next craving wins.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="gap-2">
-              <Link href="/signup">
-                Get started <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/login">Log in</Link>
-            </Button>
+        <section className="relative overflow-hidden bg-app-gradient">
+          {/* Decorative animated blobs */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute -left-24 top-8 h-72 w-72 rounded-full bg-primary/15 blur-3xl animate-float-slow" />
+            <div className="absolute -right-20 top-28 h-80 w-80 rounded-full bg-teal-400/10 blur-3xl animate-float-slower" />
+            <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-accent/30 blur-3xl animate-float-slow" />
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Always free · Your data stays private
-          </p>
+          <div className="container flex flex-col items-center py-20 text-center md:py-28">
+            <span className="mb-6 inline-flex items-center gap-2 rounded-full border bg-background/60 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-700 fill-mode-both">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              Free for everyone, forever
+            </span>
+            <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight md:text-6xl animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both">
+              Quit smoking. Predict cravings before they become relapses.
+            </h1>
+            <p className="mt-6 max-w-xl text-balance text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both">
+              SmokeTrace helps you beat nicotine addiction: track cravings, see
+              your relapse risk, and get support before the next craving wins.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
+              <Button asChild size="lg" className="gap-2">
+                <Link href="/signup">
+                  Get started <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/login">Log in</Link>
+              </Button>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground animate-in fade-in duration-700 delay-500 fill-mode-both">
+              Always free · Your data stays private
+            </p>
+          </div>
         </section>
 
         {/* Traction */}
@@ -105,14 +173,14 @@ export default function LandingPage() {
           <div className="container flex items-center justify-center gap-12 sm:gap-20">
             <div className="text-center">
               <p className="text-3xl font-bold tracking-tight text-primary">
-                100+
+                <CountUp value={100} suffix="+" />
               </p>
               <p className="mt-1 text-sm text-muted-foreground">Active users</p>
             </div>
             <div className="h-10 w-px bg-border" />
             <div className="text-center">
               <p className="text-3xl font-bold tracking-tight text-primary">
-                $5k+
+                <CountUp value={5} prefix="$" suffix="k+" />
               </p>
               <p className="mt-1 text-sm text-muted-foreground">Raised so far</p>
             </div>
@@ -121,24 +189,28 @@ export default function LandingPage() {
 
         {/* Features */}
         <section className="container py-20">
-          <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
-            Everything you need to stay quit
-          </h2>
+          <Reveal>
+            <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+              Everything you need to stay quit
+            </h2>
+          </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((f) => {
+            {FEATURES.map((f, i) => {
               const Icon = f.icon;
               return (
-                <Card key={f.title} className="h-full">
-                  <CardContent className="p-6">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-semibold">{f.title}</h3>
-                    <p className="mt-1.5 text-sm text-muted-foreground">
-                      {f.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <Reveal key={f.title} delay={i * 80} className="h-full">
+                  <Card className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-semibold">{f.title}</h3>
+                      <p className="mt-1.5 text-sm text-muted-foreground">
+                        {f.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Reveal>
               );
             })}
           </div>
@@ -147,123 +219,200 @@ export default function LandingPage() {
         {/* How it works */}
         <section className="border-t bg-muted/30 py-20">
           <div className="container">
-            <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
-              How it works
-            </h2>
+            <Reveal>
+              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+                How it works
+              </h2>
+            </Reveal>
             <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-3">
-              {STEPS.map((s) => (
-                <div key={s.step} className="flex items-center gap-4 md:flex-col md:text-center">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
-                    {s.step}
+              {STEPS.map((s, i) => (
+                <Reveal key={s.step} delay={i * 120}>
+                  <div className="flex items-center gap-4 md:flex-col md:text-center">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground transition-transform duration-300 hover:scale-110">
+                      {s.step}
+                    </div>
+                    <h3 className="font-semibold">{s.title}</h3>
                   </div>
-                  <h3 className="font-semibold">{s.title}</h3>
-                </div>
+                </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Why trust SmokeTrace */}
+        <section className="container py-20">
+          <Reveal>
+            <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+              Built on trust
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
+              SmokeTrace is here for one reason: to help you quit — on your
+              terms.
+            </p>
+          </Reveal>
+          <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+            {TRUST.map((t, i) => {
+              const Icon = t.icon;
+              return (
+                <Reveal key={t.title} delay={i * 100} className="h-full">
+                  <Card className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <CardContent className="flex flex-col items-center p-8 text-center">
+                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-semibold">{t.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {t.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Reveal>
+              );
+            })}
           </div>
         </section>
 
         {/* Founders */}
         <section className="border-t py-20">
           <div className="container">
-            <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
-              Meet the Founders
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
-              The two students building SmokeTrace.
-            </p>
+            <Reveal>
+              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+                Meet the Founders
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
+                The two students building SmokeTrace.
+              </p>
+            </Reveal>
             <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
               {/* Luke */}
-              <Card>
-                <CardContent className="flex flex-col items-center p-8 text-center">
-                  <FounderAvatar initials="LY" className="h-24 w-24 text-3xl" />
-                  <p className="mt-4 font-semibold">Luke Yin</p>
-                  <p className="text-sm text-muted-foreground">Co-Founder</p>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Luke is a freshman at Princeton University studying
-                    mathematics, with a minor in statistics and machine
-                    learning. His work spans computational biology and
-                    quantitative health analytics, including first-author
-                    research on enzyme catalysis and predictive modeling of
-                    community health data.
-                  </p>
-                  <div className="mt-5 flex items-center justify-center gap-3">
-                    <a
-                      href="mailto:ly3569@princeton.edu"
-                      aria-label="Email Luke Yin"
-                      title="ly3569@princeton.edu"
-                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                    >
-                      <Mail className="h-4 w-4" />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/lukeyin2008/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Luke Yin on LinkedIn"
-                      title="LinkedIn"
-                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              <Reveal className="h-full">
+                <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <CardContent className="flex flex-col items-center p-8 text-center">
+                    <FounderAvatar
+                      initials="LY"
+                      className="h-24 w-24 text-3xl"
+                    />
+                    <p className="mt-4 font-semibold">Luke Yin</p>
+                    <p className="text-sm text-muted-foreground">Co-Founder</p>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">
+                      Luke is a freshman at Princeton University studying
+                      mathematics, with a minor in statistics and machine
+                      learning. His work spans computational biology and
+                      quantitative health analytics, including first-author
+                      research on enzyme catalysis and predictive modeling of
+                      community health data.
+                    </p>
+                    <div className="mt-5 flex items-center justify-center gap-3">
+                      <a
+                        href="mailto:ly3569@princeton.edu"
+                        aria-label="Email Luke Yin"
+                        title="ly3569@princeton.edu"
+                        className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <Mail className="h-4 w-4" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/lukeyin2008/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Luke Yin on LinkedIn"
+                        title="LinkedIn"
+                        className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
 
               {/* Andrew */}
-              <Card>
-                <CardContent className="flex flex-col items-center p-8 text-center">
-                  <FounderAvatar initials="AW" className="h-24 w-24 text-3xl" />
-                  <p className="mt-4 font-semibold">Andrew Wong</p>
-                  <p className="text-sm text-muted-foreground">Co-Founder</p>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    A sophomore at the University of Michigan, Andrew studies
-                    neuroscience and public health. His work ranges from
-                    computational neuroscience to adolescent sleep science and
-                    digital preventative healthcare, including published
-                    research on home-based EEG systems for public-health
-                    telemonitoring.
-                  </p>
-                  <div className="mt-5 flex items-center justify-center gap-3">
-                    <a
-                      href="mailto:aawong@umich.edu"
-                      aria-label="Email Andrew Wong"
-                      title="aawong@umich.edu"
-                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                    >
-                      <Mail className="h-4 w-4" />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/andrewslinkedn/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Andrew Wong on LinkedIn"
-                      title="LinkedIn"
-                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              <Reveal delay={120} className="h-full">
+                <Card className="h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <CardContent className="flex flex-col items-center p-8 text-center">
+                    <FounderAvatar
+                      initials="AW"
+                      className="h-24 w-24 text-3xl"
+                    />
+                    <p className="mt-4 font-semibold">Andrew Wong</p>
+                    <p className="text-sm text-muted-foreground">Co-Founder</p>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">
+                      A sophomore at the University of Michigan, Andrew studies
+                      neuroscience and public health. His work ranges from
+                      computational neuroscience to adolescent sleep science and
+                      digital preventative healthcare, including published
+                      research on home-based EEG systems for public-health
+                      telemonitoring.
+                    </p>
+                    <div className="mt-5 flex items-center justify-center gap-3">
+                      <a
+                        href="mailto:aawong@umich.edu"
+                        aria-label="Email Andrew Wong"
+                        title="aawong@umich.edu"
+                        className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <Mail className="h-4 w-4" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/andrewslinkedn/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Andrew Wong on LinkedIn"
+                        title="LinkedIn"
+                        className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-t bg-muted/30 py-20">
+          <div className="container">
+            <Reveal>
+              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+                Frequently asked questions
+              </h2>
+            </Reveal>
+            <div className="mx-auto mt-12 max-w-3xl space-y-3">
+              {FAQS.map((f, i) => (
+                <Reveal key={f.q} delay={i * 60}>
+                  <details className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
+                      {f.q}
+                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
+                    </summary>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {f.a}
+                    </p>
+                  </details>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="border-t bg-muted/30 py-20 text-center">
+        <section className="border-t bg-app-gradient py-20 text-center">
           <div className="container">
-            <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
-              Your next smoke-free day starts now.
-            </h2>
-            <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              Free, private, and here whenever you need it.
-            </p>
-            <Button asChild size="lg" className="mt-8 gap-2">
-              <Link href="/signup">
-                Get started <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
+            <Reveal>
+              <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
+                Your next smoke-free day starts now.
+              </h2>
+              <p className="mx-auto mt-3 max-w-md text-muted-foreground">
+                Free, private, and here whenever you need it.
+              </p>
+              <Button asChild size="lg" className="mt-8 gap-2">
+                <Link href="/signup">
+                  Get started <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </Reveal>
           </div>
         </section>
       </main>

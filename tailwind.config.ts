@@ -81,12 +81,18 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(8px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        floaty: {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "50%": { transform: "translateY(-18px) translateX(10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         breathe: "breathe 8s ease-in-out infinite",
         "fade-in": "fade-in 0.4s ease-out",
+        "float-slow": "floaty 9s ease-in-out infinite",
+        "float-slower": "floaty 13s ease-in-out infinite",
       },
     },
   },
