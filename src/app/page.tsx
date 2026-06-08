@@ -4,7 +4,9 @@ import {
   ArrowRight,
   HeartHandshake,
   HeartPulse,
+  Linkedin,
   LineChart,
+  Mail,
   MapPin,
   Users,
 } from "lucide-react";
@@ -170,9 +172,7 @@ export default function LandingPage() {
                 <div className="md:w-48 md:shrink-0">
                   <FounderAvatar initials="LY" className="h-24 w-24 text-3xl" />
                   <p className="mt-3 font-semibold">Luke Yin</p>
-                  <p className="text-sm text-muted-foreground">
-                    Co-Founder · 2024
-                  </p>
+                  <p className="text-sm text-muted-foreground">Co-Founder</p>
                 </div>
                 <div className="space-y-4 leading-relaxed text-muted-foreground">
                   <p>
@@ -180,28 +180,26 @@ export default function LandingPage() {
                     mathematics, with research experience in computational
                     biology and medical data analytics.
                   </p>
-                  <p>
-                    Feel free to reach out at{" "}
+                  <div className="flex items-center gap-3">
                     <a
                       href="mailto:ly3569@princeton.edu"
-                      className="font-medium text-foreground hover:underline"
+                      aria-label="Email Luke Yin"
+                      title="ly3569@princeton.edu"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
-                      ly3569@princeton.edu
+                      <Mail className="h-4 w-4" />
                     </a>
-                    .
-                  </p>
-                  <p>
-                    Connect on{" "}
                     <a
                       href="https://www.linkedin.com/in/lukeyin2008/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-foreground hover:underline"
+                      aria-label="Luke Yin on LinkedIn"
+                      title="LinkedIn"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
-                      LinkedIn
+                      <Linkedin className="h-4 w-4" />
                     </a>
-                    .
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -212,9 +210,7 @@ export default function LandingPage() {
                 <div className="md:w-48 md:shrink-0">
                   <FounderAvatar initials="AW" className="h-24 w-24 text-3xl" />
                   <p className="mt-3 font-semibold">Andrew Wong</p>
-                  <p className="text-sm text-muted-foreground">
-                    Co-Founder · 2024
-                  </p>
+                  <p className="text-sm text-muted-foreground">Co-Founder</p>
                 </div>
                 <div className="space-y-4 leading-relaxed text-muted-foreground">
                   <p>
@@ -222,28 +218,26 @@ export default function LandingPage() {
                     neuroscience and public health, with research experience in
                     computational neuroscience and public health data analysis.
                   </p>
-                  <p>
-                    Feel free to reach out at{" "}
+                  <div className="flex items-center gap-3">
                     <a
                       href="mailto:aawong@umich.edu"
-                      className="font-medium text-foreground hover:underline"
+                      aria-label="Email Andrew Wong"
+                      title="aawong@umich.edu"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
-                      aawong@umich.edu
+                      <Mail className="h-4 w-4" />
                     </a>
-                    .
-                  </p>
-                  <p>
-                    Connect on{" "}
                     <a
                       href="https://www.linkedin.com/in/andrewslinkedn/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-foreground hover:underline"
+                      aria-label="Andrew Wong on LinkedIn"
+                      title="LinkedIn"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                     >
-                      LinkedIn
+                      <Linkedin className="h-4 w-4" />
                     </a>
-                    .
-                  </p>
+                  </div>
                 </div>
               </div>
             </CardContent>
