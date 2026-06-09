@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Activity,
@@ -95,6 +96,11 @@ const TRUST = [
       "Behavioral support designed to complement professional care, never replace it.",
   },
 ];
+
+export const metadata: Metadata = {
+  // Homepage tab shows just the brand name (bypasses the "%s · SmokeTrace" template).
+  title: { absolute: "SmokeTrace" },
+};
 
 export default function LandingPage() {
   return (
