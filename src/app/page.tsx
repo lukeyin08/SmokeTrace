@@ -268,25 +268,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="border-t bg-app-gradient py-20 text-center">
-          <div className="container">
-            <Reveal>
-              <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
-                Your next smoke-free day starts now.
-              </h2>
-              <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-                Free, private, and here whenever you need it.
-              </p>
-              <Button asChild size="lg" className="mt-8 gap-2">
-                <Link href="/signup">
-                  Get started <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </Reveal>
-          </div>
-        </section>
-
         {/* Founders */}
         <section className="border-t py-20">
           <div className="container">
