@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
-  ChevronDown,
   HeartHandshake,
   HeartPulse,
   Linkedin,
@@ -56,9 +55,24 @@ const FEATURES = [
 ];
 
 const STEPS = [
-  { step: "1", title: "Set up your quit profile" },
-  { step: "2", title: "Log cravings in seconds" },
-  { step: "3", title: "Get support when it counts" },
+  {
+    step: "1",
+    title: "Set up your quit profile",
+    description:
+      "Share your smoking habits, your usual triggers, and your quit goal. It takes a couple of minutes and tailors everything that follows to you.",
+  },
+  {
+    step: "2",
+    title: "Log cravings in seconds",
+    description:
+      "Tap to capture a craving or a slip — when it hit, where you were, and how strong it felt. Each entry sharpens your personal trigger map.",
+  },
+  {
+    step: "3",
+    title: "Get support when it counts",
+    description:
+      "SmokeTrace surfaces your relapse risk, nudges you ahead of high-risk moments, and opens emergency mode or your accountability contacts when you need them.",
+  },
 ];
 
 const TRUST = [
@@ -79,29 +93,6 @@ const TRUST = [
     title: "Care, not claims",
     description:
       "Behavioral support designed to complement professional care, never replace it.",
-  },
-];
-
-const FAQS = [
-  {
-    q: "Is SmokeTrace really free?",
-    a: "Yes. SmokeTrace is a non-profit project — there are no ads, no upsells, and no paywalls. It always will be free.",
-  },
-  {
-    q: "Is my data private?",
-    a: "Your cravings, triggers, and logs stay private to you. We don't sell your data or show ads against it.",
-  },
-  {
-    q: "Can I quit at my own pace?",
-    a: "Yes. SmokeTrace meets you where you are — track cravings, learn your triggers, and cut back at whatever pace works for you, whether that's gradual or all at once.",
-  },
-  {
-    q: "What do I get when a craving hits?",
-    a: "Emergency mode gives you a timer and a guided breathing exercise, and accountability lets you reach your support people in one tap.",
-  },
-  {
-    q: "What devices does it work on?",
-    a: "SmokeTrace runs in any modern browser, so it works on your phone, tablet, or computer — nothing to install.",
   },
 ];
 
@@ -219,16 +210,25 @@ export default function LandingPage() {
               <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
                 How it works
               </h2>
+              <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
+                Three simple steps from your first craving log to staying
+                smoke-free.
+              </p>
             </Reveal>
-            <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-3">
+            <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
               {STEPS.map((s, i) => (
-                <Reveal key={s.step} delay={i * 120}>
-                  <div className="flex items-center gap-4 md:flex-col md:text-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground transition-transform duration-300 hover:scale-110">
-                      {s.step}
-                    </div>
-                    <h3 className="font-semibold">{s.title}</h3>
-                  </div>
+                <Reveal key={s.step} delay={i * 120} className="h-full">
+                  <Card className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                        {s.step}
+                      </div>
+                      <h3 className="font-semibold">{s.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {s.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </Reveal>
               ))}
             </div>
@@ -265,32 +265,6 @@ export default function LandingPage() {
                 </Reveal>
               );
             })}
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="border-t bg-muted/30 py-20">
-          <div className="container">
-            <Reveal>
-              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
-                Frequently asked questions
-              </h2>
-            </Reveal>
-            <div className="mx-auto mt-12 max-w-3xl space-y-3">
-              {FAQS.map((f, i) => (
-                <Reveal key={f.q} delay={i * 60}>
-                  <details className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/40">
-                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-                      {f.q}
-                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
-                    </summary>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {f.a}
-                    </p>
-                  </details>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 
