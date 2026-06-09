@@ -92,8 +92,8 @@ const FAQS = [
     a: "Your cravings, triggers, and logs stay private to you. We don't sell your data or show ads against it.",
   },
   {
-    q: "Do I have to quit cold turkey?",
-    a: "No. SmokeTrace meets you where you are — track cravings, learn your triggers, and cut back at a pace that works for you.",
+    q: "Can I quit at my own pace?",
+    a: "Yes. SmokeTrace meets you where you are — track cravings, learn your triggers, and cut back at whatever pace works for you, whether that's gradual or all at once.",
   },
   {
     q: "What do I get when a craving hits?",
@@ -102,10 +102,6 @@ const FAQS = [
   {
     q: "What devices does it work on?",
     a: "SmokeTrace runs in any modern browser, so it works on your phone, tablet, or computer — nothing to install.",
-  },
-  {
-    q: "Is this medical advice?",
-    a: "No. SmokeTrace offers behavioral support, not medical advice. For treatment decisions, talk with a qualified clinician.",
   },
 ];
 
@@ -272,6 +268,51 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="border-t bg-muted/30 py-20">
+          <div className="container">
+            <Reveal>
+              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
+                Frequently asked questions
+              </h2>
+            </Reveal>
+            <div className="mx-auto mt-12 max-w-3xl space-y-3">
+              {FAQS.map((f, i) => (
+                <Reveal key={f.q} delay={i * 60}>
+                  <details className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
+                      {f.q}
+                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
+                    </summary>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {f.a}
+                    </p>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="border-t bg-app-gradient py-20 text-center">
+          <div className="container">
+            <Reveal>
+              <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
+                Your next smoke-free day starts now.
+              </h2>
+              <p className="mx-auto mt-3 max-w-md text-muted-foreground">
+                Free, private, and here whenever you need it.
+              </p>
+              <Button asChild size="lg" className="mt-8 gap-2">
+                <Link href="/signup">
+                  Get started <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Founders */}
         <section className="border-t py-20">
           <div className="container">
@@ -368,51 +409,6 @@ export default function LandingPage() {
                 </Card>
               </Reveal>
             </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="border-t bg-muted/30 py-20">
-          <div className="container">
-            <Reveal>
-              <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
-                Frequently asked questions
-              </h2>
-            </Reveal>
-            <div className="mx-auto mt-12 max-w-3xl space-y-3">
-              {FAQS.map((f, i) => (
-                <Reveal key={f.q} delay={i * 60}>
-                  <details className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/40">
-                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-                      {f.q}
-                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
-                    </summary>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {f.a}
-                    </p>
-                  </details>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="border-t bg-app-gradient py-20 text-center">
-          <div className="container">
-            <Reveal>
-              <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold tracking-tight md:text-4xl">
-                Your next smoke-free day starts now.
-              </h2>
-              <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-                Free, private, and here whenever you need it.
-              </p>
-              <Button asChild size="lg" className="mt-8 gap-2">
-                <Link href="/signup">
-                  Get started <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </Reveal>
           </div>
         </section>
       </main>
