@@ -281,9 +281,6 @@ export default function LandingPage() {
               <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">
                 Meet the Founders
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-balance text-center text-muted-foreground">
-                The two students building SmokeTrace.
-              </p>
             </Reveal>
             <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
               {/* Luke */}
